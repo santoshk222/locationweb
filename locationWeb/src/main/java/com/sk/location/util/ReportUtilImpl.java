@@ -19,9 +19,9 @@ public class ReportUtilImpl implements ReportUtil {
 		for (Object[] objects : data) {
 			dataset.setValue(objects[0].toString(), new Double(objects[1].toString()));
 		}
-		JFreeChart chart=ChartFactory.createPieChart3D("Location", dataset);
+		JFreeChart chart = ChartFactory.createPieChart3D("Location", dataset);
 		try {
-			ChartUtilities.saveChartAsJPEG(new File(path+"/chart.jpeg"), chart, 300, 300);
+			ChartUtilities.saveChartAsJPEG(new File(path + "/chart.jpeg"), chart, 300, 300);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -13,20 +13,20 @@ public class EmailUtilImpl implements EmailUtil {
 
 	@Autowired
 	private JavaMailSender sender;
-	
+
 	@Override
 	public void sendMail(String to, String subject, String body) {
 		MimeMessage message = sender.createMimeMessage();
-		MimeMessageHelper helper= new MimeMessageHelper(message);
+		MimeMessageHelper helper = new MimeMessageHelper(message);
 		try {
 			helper.setTo(to);
 			helper.setSubject(subject);
 			helper.setText(body);
 		} catch (MessagingException e) {
-			
+
 			e.printStackTrace();
 		}
-		//sender.send(message);
+		// sender.send(message);
 	}
 
 }

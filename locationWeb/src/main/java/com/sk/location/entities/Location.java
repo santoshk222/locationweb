@@ -5,10 +5,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Location {
+
 	@Id
 	private int id;
+
 	private String name;
+
 	private String type;
+
 	private String code;
 
 	public int getId() {

@@ -1,6 +1,5 @@
 package com.sk.location.util;
 
-import java.util.Iterator;
 import java.util.List;
 
 import com.sk.location.entities.Location;
@@ -14,13 +13,13 @@ public class LocationUtil {
 		email = "santoshspringxyz@gmail.com";
 		String subject = "";
 		Location location = null;
-		List<Location> list=null;
+		List<Location> list = null;
 		if (object instanceof Location) {
 			location = (Location) object;
-		}else if(object instanceof List<?>){
-			list=(List<Location>) object;
+		} else if (object instanceof List<?>) {
+			list = (List<Location>) object;
 		}
-		String locationDetails = "Location details are: \n"+location;
+		String locationDetails = "Location details are: \n" + location;
 		StringBuilder builder = new StringBuilder();
 		builder.append("Hello " + email.substring(0, email.indexOf("@")));
 		if (action.equalsIgnoreCase(MailActionsConstatnts.NEW)) {

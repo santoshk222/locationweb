@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,21 +27,28 @@ import com.sk.location.util.ReportUtil;
 @Controller
 public class LocationController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(LocationController.class);
+
 	@Autowired
 	private LocationService service;
+
 	@Autowired
 	LocationRepository repo;
+
 	@Autowired
 	ReportUtil reportUtil;
+
 	@Autowired
 	ServletContext sc;
+
 	@Autowired
 	private EmailUtil emailUtil;
 
-	@RequestMapping(value = { LocationConstants.CEATE_LOCATION_SHOW_PATH, "/", "home" })
+	@RequestMapping(value = {LocationConstants.CEATE_LOCATION_SHOW_PATH, "/", "home"})
 	public String showCreate(ModelMap modal) {
 		modal.addAttribute("location", new Location());
 		modal.addAttribute("isEdit", false);
+		LOGGER.info("info");
 		return LocationConstants.CEATE_LOCATION_SHOW_FILE;
 	}
 
@@ -51,7 +60,13 @@ public class LocationController {
 		Location savedLoc = service.saveLocation(location);
 		String msg = "location Saved: " + savedLoc.getId();
 		map.addAttribute("msg", msg);
-		LocationUtil.composeMail(MailActionsConstatnts.NEW, "santoshspringxyz@gmail.com", location, emailUtil);
+		LOGGER.debug("debug");
+		LOGGER.info("info");
+		LOGGER.trace("trace");
+		LOGGER.error("error");
+		LOGGER.warn("warn");
+		LocationUtil.composeMail(MailActionsConstatnts.NEW, "santoshspringxyz@gmail.com", location,
+		          emailUtil);
 		return LocationConstants.REDIRECT + LocationConstants.DISPLAY_LOCATIONS_PATH;
 	}
 
@@ -67,20 +82,29 @@ public class LocationController {
 	public String displayAll(ModelMap modal) {
 		List<Location> list = service.getAll();
 		modal.addAttribute("locations", list);
-		LocationUtil.composeMail(MailActionsConstatnts.GETALL, "santoshspringxyz@gmail.com", list, emailUtil);
+		LOGGER.debug("debug");
+		LOGGER.info("info");
+		LOGGER.trace("trace");
+		LOGGER.error("error");
+		LOGGER.warn("warn");
+		LocationUtil.composeMail(MailActionsConstatnts.GETALL, "santoshspringxyz@gmail.com", list,
+		          emailUtil);
 		return LocationConstants.DISPLAY_LOCATIONS_FILE;
 	}
 
-	@RequestMapping(value = LocationConstants.DELETE_LOCATION_PATH + "/{" + LocationConstants.LOCATION_PATH_VAR + "}")
+	@RequestMapping(value = LocationConstants.DELETE_LOCATION_PATH + "/{"
+	          + LocationConstants.LOCATION_PATH_VAR + "}")
 	public String deleteLocation(@PathVariable(LocationConstants.LOCATION_PATH_VAR) int id, ModelMap modal) {
 		Location location = new Location();
 		location.setId(id);
 		service.deleteLocation(location);
-		LocationUtil.composeMail(MailActionsConstatnts.DELETE, "santoshspringxyz@gmail.com", location, emailUtil);
+		LocationUtil.composeMail(MailActionsConstatnts.DELETE, "santoshspringxyz@gmail.com", location,
+		          emailUtil);
 		return LocationConstants.REDIRECT + LocationConstants.DISPLAY_LOCATIONS_PATH;
 	}
 
-	@RequestMapping(value = LocationConstants.EDIT_LOCATION_PATH + "/{" + LocationConstants.LOCATION_PATH_VAR + "}")
+	@RequestMapping(value = LocationConstants.EDIT_LOCATION_PATH + "/{" + LocationConstants.LOCATION_PATH_VAR
+	          + "}")
 	public String editLocation(@PathVariable(LocationConstants.LOCATION_PATH_VAR) int id, ModelMap modal) {
 
 		Location location = service.getLocationById(id);
