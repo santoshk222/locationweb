@@ -1,5 +1,16 @@
 package com.sk.location.util;
 
+/***********************************************************************
+ * History.
+ * 
+ * 21.12.2019 Created.
+ **********************************************************************/
+/**
+ * Common constants.
+ * 
+ * @author santosh Korade
+ *
+ */
 public interface LocationConstants {
 
 	public static final String CEATE_LOCATION_SHOW_PATH = "showCreate";

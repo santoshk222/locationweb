@@ -1,5 +1,10 @@
 package com.sk.location.services;
 
+/***********************************************************************
+ * History.
+ * 
+ * 21.12.2019 Created.
+ **********************************************************************/
 import java.util.List;
 
 import com.sk.location.entities.Location;

@@ -1,9 +1,20 @@
 package com.sk.location.util;
 
+/***********************************************************************
+ * History.
+ * 
+ * 21.12.2019 Created.
+ **********************************************************************/
 import java.util.List;
 
 import com.sk.location.entities.Location;
 
+/**
+ * Location utility class.
+ * 
+ * @author santosh Korade
+ *
+ */
 public class LocationUtil {
 
 	public static String action;

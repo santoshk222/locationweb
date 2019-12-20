@@ -1,5 +1,10 @@
 package com.sk.location.controllers;
 
+/***********************************************************************
+ * History.
+ * 
+ * 21.12.2019 Created.
+ **********************************************************************/
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -66,7 +71,7 @@ public class LocationController {
 		LOGGER.error("error");
 		LOGGER.warn("warn");
 		LocationUtil.composeMail(MailActionsConstatnts.NEW, "santoshspringxyz@gmail.com", location,
-		          emailUtil);
+		                    emailUtil);
 		return LocationConstants.REDIRECT + LocationConstants.DISPLAY_LOCATIONS_PATH;
 	}
 
@@ -88,23 +93,23 @@ public class LocationController {
 		LOGGER.error("error");
 		LOGGER.warn("warn");
 		LocationUtil.composeMail(MailActionsConstatnts.GETALL, "santoshspringxyz@gmail.com", list,
-		          emailUtil);
+		                    emailUtil);
 		return LocationConstants.DISPLAY_LOCATIONS_FILE;
 	}
 
 	@RequestMapping(value = LocationConstants.DELETE_LOCATION_PATH + "/{"
-	          + LocationConstants.LOCATION_PATH_VAR + "}")
+	                    + LocationConstants.LOCATION_PATH_VAR + "}")
 	public String deleteLocation(@PathVariable(LocationConstants.LOCATION_PATH_VAR) int id, ModelMap modal) {
 		Location location = new Location();
 		location.setId(id);
 		service.deleteLocation(location);
 		LocationUtil.composeMail(MailActionsConstatnts.DELETE, "santoshspringxyz@gmail.com", location,
-		          emailUtil);
+		                    emailUtil);
 		return LocationConstants.REDIRECT + LocationConstants.DISPLAY_LOCATIONS_PATH;
 	}
 
 	@RequestMapping(value = LocationConstants.EDIT_LOCATION_PATH + "/{" + LocationConstants.LOCATION_PATH_VAR
-	          + "}")
+	                    + "}")
 	public String editLocation(@PathVariable(LocationConstants.LOCATION_PATH_VAR) int id, ModelMap modal) {
 
 		Location location = service.getLocationById(id);

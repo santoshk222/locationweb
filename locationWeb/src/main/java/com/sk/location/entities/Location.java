@@ -1,5 +1,10 @@
 package com.sk.location.entities;
 
+/***********************************************************************
+ * History.
+ * 
+ * 21.12.2019 Created.
+ **********************************************************************/
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

@@ -1,5 +1,10 @@
 package com.sk.location.util;
 
+/***********************************************************************
+ * History.
+ * 
+ * 21.12.2019 Created.
+ **********************************************************************/
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 

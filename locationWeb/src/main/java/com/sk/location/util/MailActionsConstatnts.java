@@ -1,5 +1,16 @@
 package com.sk.location.util;
 
+/***********************************************************************
+ * History.
+ * 
+ * 
+ **********************************************************************/
+/**
+ * Mail constants.
+ * 
+ * @author santosh Korade
+ *
+ */
 public interface MailActionsConstatnts {
 
 	public static final String NEW = "new";
